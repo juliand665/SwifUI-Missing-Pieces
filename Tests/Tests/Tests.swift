@@ -1,6 +1,6 @@
 import XCTest
 import SwiftUI
-@testable import SwiftUI_Missing_Pieces
+@testable import SwiftUIMissingPieces
 
 final class Tests: XCTestCase {
     func testTagged() {

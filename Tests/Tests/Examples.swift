@@ -1,6 +1,6 @@
 import XCTest
 import SwiftUI
-@testable import SwiftUI_Missing_Pieces
+@testable import SwiftUIMissingPieces
 
 // In this file, we really just test that stuff compiles. These are also the examples in the readme.
 
