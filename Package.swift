@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-	name: "SwiftUI Missing Pieces",
+	name: "SwiftUIMissingPieces",
 	platforms: [
 		.iOS(.v13),
 		.macOS(.v10_15),
