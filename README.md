@@ -6,7 +6,8 @@ All parts are described below, but these are my favorites:
 
 - `in`: transforms a view using a closure, while keeping the nice modifier syntax and avoiding `AnyView`
 - `EnvironmentTracker`: tracks and notifies of changes to `@Environment` values (e.g. the color scheme)
-- `ForEachBinding`: An upgrade to `ForEach` that provides you with full-fledged bindings to the values in the body.
+- `ForEachBinding`: an upgrade to `ForEach` that provides you with full-fledged bindings to the values in the body.
+- `measured`: measures a view after layout, updating you when its size changes.
 
 ## Parts & Examples
 
