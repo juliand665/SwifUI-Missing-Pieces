@@ -2,19 +2,29 @@ import SwiftUI
 
 /// Like `ForEach`, but takes a mutable collection and gives you `Binding`s so you can mutate the view contents. 
 public struct ForEachBinding<Collection, LoopBody>: View where
-	Collection: RandomAccessCollection & MutableCollection,
+	Collection: MutableCollection,
 	Collection.Element: Identifiable,
 	Collection.Index: Hashable,
 	LoopBody: View
 {
-	public typealias BodyClosure = (Binding<Element>) -> LoopBody
 	public typealias Element = Collection.Element
 	typealias Index = Collection.Index
 	
 	@Binding public var data: Collection
-	let loopBody: BodyClosure
+	let loopBody: (Binding<Element>) -> LoopBody
 	
-	public init(_ data: Binding<Collection>, @ViewBuilder loopBody: @escaping BodyClosure) {
+	/**
+	Creates an instance that computes views for each collection element using the given view builder.
+	
+	- Parameters:
+		- data: The data source to display and bind to.
+		- loopBody: The view builder to construct the dynamic views from.
+		- element: A binding to the element for which to build a view.
+	*/
+	public init(
+		_ data: Binding<Collection>,
+		@ViewBuilder loopBody: @escaping (_ element: Binding<Element>) -> LoopBody // a typealias for the closure would be more opaque in the docs and autocomplete
+	) {
 		self._data = data
 		self.loopBody = loopBody
 	}
