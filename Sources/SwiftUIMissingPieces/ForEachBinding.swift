@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// Like `ForEach`, but takes a mutable collection and gives you `Binding`s so you can mutate the view contents. 
-public struct ForEachBinding<Collection, LoopBody>: View where
+public struct ForEachBinding<Collection, LoopBody>: View, DynamicViewContent where
 	Collection: MutableCollection,
 	Collection.Element: Identifiable,
 	Collection.Index: Hashable,
