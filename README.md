@@ -123,6 +123,8 @@ Text(isHovered ? "thanks!" : "hover over me :)")
 
 ### measured
 
+Measures a view after layout, updating you when its size changes.
+
 ```swift
 @State var textWidth: CGFloat = 0
 
