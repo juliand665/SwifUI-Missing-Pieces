@@ -100,15 +100,21 @@ Applies the given closure to a view and returns the result. Makes for a nice eas
 ```swift
 Text("example")
 	.in {
-		if shouldHide { $0.hidden() } else { $0 }
-	}
-	.in {
 		#if os(macOS)
 		$0.presentedWindowStyle(TitleBarWindowStyle())
 		#else
 		$0.indexViewStyle(PageIndexViewStyle())
 		#endif
 	}
+```
+
+### if
+
+Applies the given closure to a view _if_ the given condition is true, returning the result. Really just shorthand for the most common use of `in`.
+
+```swift
+Text("example")
+	.if(shouldHide) { $0.hidden() }
 ```
 
 ### hoverState

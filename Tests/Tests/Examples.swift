@@ -67,13 +67,8 @@ struct TaggedTest: View {
 // the best platform-specific examples i found aren't available on older versions
 @available(iOS 14.0, macCatalyst 14.0, macOS 11.0, *)
 struct InExample: View {
-	@State var shouldHide = false
-	
 	var body: some View {
 		Text("example")
-			.in {
-				if shouldHide { $0.hidden() } else { $0 }
-			}
 			.in {
 				#if os(macOS)
 				$0.presentedWindowStyle(TitleBarWindowStyle())
@@ -81,6 +76,15 @@ struct InExample: View {
 				$0.indexViewStyle(PageIndexViewStyle())
 				#endif
 			}
+	}
+}
+
+struct IfExample: View {
+	@State var shouldHide = false
+	
+	var body: some View {
+		Text("example")
+			.if(shouldHide) { $0.hidden() }
 	}
 }
 
