@@ -90,6 +90,10 @@ var body: some View {
 	ForEach(zip(texts, texts.indices).map(Tagged.init)) { tagged in
 		Text("\(tagged.value.text) (at \(tagged.tag)")
 	}
+	// Or, conveniently:
+	ForEach(texts.taggedWithIndex()) { tagged in
+		Text("\(tagged.value.text) (at \(tagged.tag)")
+	}
 }
 ```
 

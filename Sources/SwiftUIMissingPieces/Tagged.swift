@@ -14,3 +14,9 @@ public struct Tagged<Value, Tag> {
 extension Tagged: Identifiable where Value: Identifiable {
 	public var id: Value.ID { value.id }
 }
+
+public extension Collection {
+	func taggedWithIndex() -> [Tagged<Element, Index>] {
+		zip(self, self.indices).map(Tagged.init)
+	}
+}
