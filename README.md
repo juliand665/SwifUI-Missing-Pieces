@@ -67,7 +67,7 @@ Provides the "obvious" implementation of a preference key with an optional value
 
 ```swift
 private enum WidthMarker {}
-typealias WidthKey = SimplePreferenceKey<WidthMarker, CGFloat>
+private typealias WidthKey = SimplePreferenceKey<WidthMarker, CGFloat>
 
 var body: some View {
 	Text("example")
