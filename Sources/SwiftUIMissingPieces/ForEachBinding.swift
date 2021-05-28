@@ -11,7 +11,7 @@ public struct ForEachBinding<Collection, LoopBody>: View, DynamicViewContent whe
 	typealias Index = Collection.Index
 	
 	@Binding public var data: Collection
-	let loopBody: (Binding<Element>) -> LoopBody
+	@ViewBuilder let loopBody: (Binding<Element>) -> LoopBody
 	
 	/**
 	Creates an instance that computes views for each collection element using the given view builder.
@@ -31,8 +31,8 @@ public struct ForEachBinding<Collection, LoopBody>: View, DynamicViewContent whe
 	
 	public var body: some View {
 		// Using the data's id rather than involving the index makes animations work correctly.
-		ForEach(zip(data, data.indices).map(Tagged.init)) { tagged -> LoopBody in
-			loopBody($data.workaround[tagged.tag])
+		ForEach(data.taggedWithIndex()) {
+			loopBody($data.workaround[$0.tag])
 		}
 	}
 }
